@@ -1,0 +1,49 @@
+<%- include ../layout/cabecalho.ejs %>
+
+    <% if(errosValidacao) { %>
+      <ul>
+        <% for(var i=0; i < errosValidacao.length; i++) {%>
+         <li>
+            <%= errosValidacao[i].msg %>
+          </li>
+        <%}%>
+      </ul>
+    <%}%>
+ 
+   <form action="/produtos" method="post">
+        <div class="form-row">
+            
+
+            <% if(livro.id ) { %>
+                <input type="hidden" id="id" name="id" value="<%=livro.id%>">
+            <% } %>
+             
+              <div class="form-group col-md-9">
+                  <label for="nome">Nome</label>
+                  <input class="form-control" type="text" id="nome" name="nome" value="<%=livro.nome%>" placeholder="Informe o nome do livro">
+              </div>
+              <div class="form-group col-md-9">
+                <label for="editora">Editora</label>
+                <input class="form-control" type="text" id="editora" name="editora" value="<%=livro.editora%>" placeholder="Informe a editora do livro">
+              </div>
+              <div class="form-group col-md-9">
+                <label for="autor">Autor</label>
+                <input class="form-control" type="text" id="autor" name="autor" value="<%=livro.autor%>" placeholder="Informe o autor do livro">
+            </div>
+            <div class="form-group col-md-9">
+              <label for="ano">Ano de puclicação</label>
+              <input class="form-control" type="text" id="ano" name="ano" value="<%=livro.ano%>" placeholder="Informe o ano de puclicação">
+            </div>
+            <div class="form-group col-md-3">
+               <label for="preco">Preço</label>
+               <input class="form-control" type="text" id="preco" name="preco" value="<%=livro.preco%>" placeholder="9.90">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea class="form-control" cols="20" rows="10" id="descricao" name="descricao"
+                      placeholder="Descreva as características do livro"><%=livro.descricao%></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Salvar</button>
+    </form>        
+<%- include ../layout/rodape.ejs %>
