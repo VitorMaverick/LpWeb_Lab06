@@ -1,7 +1,7 @@
 <%- include ../layout/cabecalho.ejs %>
 
     <% if(errosValidacao) { %>
-      <ul>
+      <ul class="mt-3 alert alert-warning">
         <% for(var i=0; i < errosValidacao.length; i++) {%>
          <li>
             <%= errosValidacao[i].msg %>
@@ -10,7 +10,7 @@
       </ul>
     <%}%>
  
-   <form action="/produtos" method="post">
+   <form action="/livros" method="post">
         <div class="form-row">
             
 

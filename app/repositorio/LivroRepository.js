@@ -1,5 +1,5 @@
  
-class ProdutoRepository {
+class LivroRepository {
     
     constructor(conexao) {
        this._conexao = conexao;
@@ -7,6 +7,12 @@ class ProdutoRepository {
 
     porId(id, callback ) {
         this._conexao.query(`select * from livro where id = ${id}`, callback);
+    }
+    porNome(nome, callback ) {
+        this._conexao.query(`select * from livro where nome like '%${nome}%'`, callback);
+    }
+    porAutor(autor, callback ) {
+        this._conexao.query(`select * from livro where autor like '%${autor}%'`, callback);
     }
 
 
@@ -35,4 +41,4 @@ class ProdutoRepository {
 
 } 
 
-module.exports = () => { return ProdutoRepository };
+module.exports = () => { return LivroRepository };

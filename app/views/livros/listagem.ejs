@@ -1,0 +1,86 @@
+<%- include ../layout/cabecalho.ejs %>
+
+        <!-- Search form -->
+        <div  class="d-md-flex flex-row my-4">
+            <form method="get" action="/livros" class="mr-2">
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control my-0 py-1 " type="text" placeholder="Selo" aria-label="Search" id="id" name="id">
+                    <div class="input-group-append purple">
+                        <button type="submit"  class="btn btn-sm btn-light" 
+                        onClick="">Pesquisar pelo id</button>
+                    </div>
+                </div>
+            </form>
+            <form method="get" action="/livros" class="mr-2">
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control my-0 py-1 " type="text" placeholder="Nome" aria-label="Search" id="nome" name="nome">
+                    <div class="input-group-append">
+                    <button type="submit"  class="btn btn-sm btn-light" 
+                        onClick="">Pesquisar pelo nome</button>
+                    </div>
+                </div>
+            </form>
+            <form method="get" action="/livros" class="mr-2 ">
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control my-0 py-1" type="text" placeholder="Autor" aria-label="Search" id="autor" name="autor">
+                    <div class="input-group-append">
+                        <button type="submit"  class="btn btn-sm btn-light" 
+                        onClick="">Pesquisar pelo autor</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+               
+
+        <h2 class="text-center mb-3">Lista de Livros</h2>
+
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Editora</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Preço</th>
+                    <th class="scope center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < lista.length; i++) { %>
+                    <tr>
+                        <th scope="row">
+                            <%=i+1%>
+                        </th>
+                        <td>
+                            <%= lista[i].nome %>
+                        </td>
+                        <td>
+                            <%= lista[i].autor %>
+                        </td>
+                        <td>
+                            <%= lista[i].editora %>
+                        </td>
+                        <td>
+                            <%= lista[i].descricao %>
+                        </td>
+                        <td>
+                            <%= lista[i].preco %>
+                        </td>
+                        <td>
+                            <a href="/livro/edita/<%= lista[i].id %>" class="btn btn-outline-primary btn-sm">Editar</a>
+                           
+                            <form method="post" action="/livros/remove/<%= lista[i].id %>" class="float-left">
+                                <button type="submit"  class="btn btn-outline-danger btn-sm" 
+                                        onClick="return confirm('Confirmar a exclusão do livro <%= lista[i].nome %>?')">Excluir</button>
+                               
+                            </form>
+
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+
+        </table>
+
+<%- include ../layout/rodape.ejs %>

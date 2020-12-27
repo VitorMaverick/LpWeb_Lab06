@@ -1,5 +1,69 @@
 <%- include ./layout/cabecalho.ejs %>
 
-    <h1>Página Principal ...</h1>
+<main class="container">  
+    <article class="home ">
+        <section class="banner">
+            <header class="row justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <img class="banner-img" src="/images/library.png"/>
+                </div>
+                <div class="banner-content  col-md-4">
+                    <h1>Book.net</h1>
+                    <p class="subtitle">Sua biblioteca online</p>
+                </div>
+            </header>
+            
+
+                <h2>Conheça os melhores livros sobre o mundo da tecnologia! </h2>
+                
+                <p>Para que você entenda o impacto da revolução tecnológica e como ela pode influenciar empresas, o mercado e carreiras, a redação da IT Trends preparou uma seleção de livros que discutem essas mudanças a partir de diferentes perspectivas.</p>
+                <div class="row col-12 d-flex justify-content-center">
+                    <a class="btn-home " href="/livros">Ver lista de livros</a>  
+                </div>
+            
+
+        </section>
+        <aside class="aside row justify-content-between" role="complementary">
+            <div class="aside-box">
+                <h2>Veja a lista de livros mais vendidos</h2>
+                <ul>
+                    <li>
+                        <a href="#">Exemplo 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Exemplo 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Exemplo 3</a>
+                    </li>
+                    <li>
+                        <a href="#">Exemplo 4</a>
+                    </li>
+                </ul>
+                <a class="btn-home btn-aside" href="#">Veja a lista completa...</a>
+            </div>
+            <div class="aside-box ">
+                <h2>Veja a lista de livros mais alugados</h2>
+                <ul>
+                    <li>
+                        <a href="#">Exemplo 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Exemplo 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Exemplo 3</a>
+                    </li>
+                    <li>
+                        <a href="#">Exemplo 4</a>
+                    </li>
+                </ul>
+                <a class=" btn-aside" href="#">Veja a lista completa...</a>
+            </div>
+            
+        </aside>
+
+    </article>
+</main>
 
 <%- include ./layout/rodape.ejs %>
